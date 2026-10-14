@@ -1,0 +1,75 @@
+/* Keep the ordinary arrow over every control, including pressed controls. */
+html, body, body *, body *::before, body *::after {
+  cursor: default !important;
+}
+.protected-native-select { display: none !important; }
+.protected-select {
+  display: inline-block;
+  min-width: 65px;
+  -webkit-app-region: no-drag;
+}
+.protected-select-trigger {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 4px 20px 4px 8px;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 4px;
+  background: rgba(255,255,255,.08);
+  position: relative;
+  -webkit-app-region: no-drag;
+}
+.protected-select-trigger::after {
+  content: '⌄';
+  position: absolute;
+  right: 6px;
+}
+.protected-select-menu {
+  position: fixed;
+  box-sizing: border-box;
+  z-index: 10000;
+  overflow-y: auto;
+  padding: 4px;
+  border: 1px solid rgba(148,163,184,.4);
+  border-radius: 6px;
+  background: #111827;
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+  -webkit-app-region: no-drag;
+}
+.protected-select-menu[hidden] { display: none; }
+.protected-select-option {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  padding: 6px 10px;
+  color: #f8fafc;
+  font: 12px 'Segoe UI', sans-serif;
+  text-align: left;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  -webkit-app-region: no-drag;
+}
+.protected-select-option:focus,
+.protected-select-option[aria-selected="true"] {
+  outline: none;
+  background: rgba(96,165,250,.2);
+}
+.toolbar-drag-handle {
+  flex: 0 0 22px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  color: rgba(255,255,255,.5);
+  background: transparent;
+  user-select: none;
+  touch-action: none;
+  -webkit-app-region: no-drag;
+}
+/* Language and skill remain available while capture uses its shortcut. */
+body.keyboard-answer-mode .command-tab > .command-item:not([id]),
+body.keyboard-answer-mode .command-tab > .command-item:not([id]) + .command-separator,
+body.keyboard-answer-mode #micButton,
+body.keyboard-answer-mode #micButton + .command-separator { display: none !important; }
